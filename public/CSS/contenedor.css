@@ -1,0 +1,43 @@
+.container{
+    /* width: 50%; */
+    display: flex;
+    
+}
+
+.card-header{
+    background-color: #ABB8D3; 
+}
+
+div {
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* .grid-container-energeticos {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    grid-gap: 5px; 
+    background-color: #2196F3; 
+    padding: 10px; 
+  } */
+  
+  /* .grid-container-energeticos > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 0;
+    font-size: 12px;
+  } */
+
+  .grid-container-ocupacion {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    /* grid-gap: 5px; */
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+  }
+  
+  .grid-container-ocupacion > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    padding: 5px 0;
+    /* font-size: 12px; */
+  }

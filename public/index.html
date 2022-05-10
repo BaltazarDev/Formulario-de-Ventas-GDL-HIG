@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="CSS/usuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iniciar Sesión V GDL</title>
+</head>
+<body>
+  <div class="modal-dialog text-center">
+    <div class="col-sm-8 main-section">
+        <div class="modal-content">
+            <div class="col-12 user-img">
+                <img src="Imagenes/hinnexp.png"/>
+            </div>
+                <div class="form-group">
+                  <h4>Iniciar Sesión</h4>
+                </div>
+                <div class="form-group" id="user-group">
+                  <input type="email" id="email" placeholder="Correo electrónico" />
+                </div>
+                <div class="form-group" id="contrasena-group">
+                  <input type="password" id="pass" placeholder="Contraseña" />
+                </div>
+                <div class="form-group">
+                  <button type="button" class="btn btn-outline-info btn-lg" onclick="accederUsu()">Acceder</button>
+                </div>
+                <!-- <div class="form-group">
+                  <button onclick="googleSignIn()">Google</button>
+                </div> -->
+            <div class="col-12 forgot">
+                <h5 id="login"></h5>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBpUbOOIh2vQv7MtCdOAhQ_hA2rkQD0gM4",
+    authDomain: "dbventashinnexpogdl.firebaseapp.com",
+    projectId: "dbventashinnexpogdl",
+    storageBucket: "dbventashinnexpogdl.appspot.com",
+    messagingSenderId: "11975933323",
+    appId: "1:11975933323:web:38fd16691bf3664069838e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+/* AUTENTIFICACIÓN CON CORREO Y CONTRASEÑA */
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var textoVerificado="";
+    if(emailVerified===false){
+      textoVerificado="";
+    }
+    else{
+      textoVerificado="";
+    }
+    var providerData = user.providerData;
+    document.getElementById('login').innerHTML=
+    `<p> `+user.email+` `+ textoVerificado+` <p>
+      <button type="button" class="btn btn-success" id="cargar" onclick="location.href='BienvenidoV.html'">Entrar</button>
+    `;
+    console.log(user);
+    /* document.getElementById('cargar').onclick(); */
+  } else {
+    document.getElementById('login').innerHTML="";
+  }
+  });
+
+  function registrarusu(){
+    var email=document.getElementById('email').value;
+    var pass=document.getElementById('pass').value;
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+    })
+    .then(function(){
+      verificar();
+    });
+  }
+  function verificar(){
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+    // Email sent.
+    }).catch(function(error) {
+    // An error happened.
+    });
+  }
+  function accederUsu(){
+        var emailA=document.getElementById('email').value;
+        var passA=document.getElementById('pass').value;
+        firebase.auth().signInWithEmailAndPassword(emailA, passA)
+        .then(function(){
+          document.getElementById('cargar').onclick();
+        })
+        .catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorMessage);
+        });
+   }
+   function cerrar(){
+    firebase.auth().signOut()
+    .then(function(){
+      console.log('Salir');
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+   }
+/************************************************** */
+/* AUTENTIFICACIÓN CON GOOGLE */
+/* googleSignIn=()=>{
+    var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithRedirect(provider).then(function(result){
+          console.log(result)
+          console.log("Inicio correcto")
+          document.getElementById('login').innerHTML=
+    `<p> `+user.email+` `+ textoVerificado+` <p>
+      <button id="cargaruser" onclick="location.href='InicioUsuario.html'">Página principal</button>
+    `;
+    console.log(user);
+    document.getElementById('cargaruser').onclick();
+      }).catch(function(error){
+          console.log(error)
+          console.log("Fallo")
+      })
+  } */
+</script>
+</body>
+</html>

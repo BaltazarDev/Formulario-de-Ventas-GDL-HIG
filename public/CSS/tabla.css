@@ -1,0 +1,15 @@
+thead {
+    background-color: #000000;
+    text-align: center;
+    color: white;
+}
+
+.container-form {
+    background-color: #fafafa;
+    /* margin: 1rem; */
+    padding: 1rem;
+    border: 1px solid #ccc;
+  /* IMPORTANTE */
+    text-align: center;
+  }
+  

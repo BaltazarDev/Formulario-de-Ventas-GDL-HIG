@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/tabla.css"> 
+
+    <title>Tabla Ventas HINN EXP GDL</title>
+  </head>
+<body>
+  <!-- MENU -->
+  <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="BienvenidoV.html">Departamento de Ventas HINN EXP GDL</a>
+    <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarColor02" aria-controls = "navbarColor02" aria-extended = "false" aria-label = "Navegación de palanca ">
+      <span class = "navbar-toggler-icon"> </span>
+    </button>
+    <div class = "collapse navbar-collapse" id= "navbarColor02">
+        <ul class = "navbar-nav mr-auto">
+          <li class = "nav-item">
+            <a class="nav-link" href="BienvenidoV.html">Inicio</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="VisitaCuentasHINN_EXP_GDL.html">Visita Cuentas</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="TablaVC_HINN_EXP_GDL.html">Tabla</a>
+          </li>
+          <li>
+              <a id="login">
+              <a id="regresar"></a>
+          </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <a id="login">
+          <a id="regresar"></a>
+        </form> -->
+      </div>
+  
+
+  <!-- FORMULARIO STATUS OCULTO -->
+    <!-- <div id="mostrarocultar">
+      <div class="container-form">
+        <div class="form-row">
+          <h6>Resolución de observaciones</h6>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Área" id="sArea">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="ID Rol" id="sIDC">
+          </div>
+          <div class="col">
+            <input type="date" class="form-control" id="sFecha">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Status" id="sStatus">
+          </div>
+          <button type="button" class="btn btn-info" id="boton" onclick="guardar()">Añadir status</button>
+        </div>
+      </div>
+    </div> -->
+  <!-- FIN DEL FORMULARIO OCULTO -->
+  </nav>
+  <!-- FIN MENU --> 
+  
+    <div class="table-responsive-lg">
+      <table id="tab" BORDER WIDTH="100%">
+          <thead>
+              <tr>
+                  <th colspan="3">EJECUTIVO</th>
+                  <th colspan="5">EMPRESA VISITAR</th>
+                  <th colspan="1">RESULTADO DE VISITA</th>
+                  <th colspan="1">ACCIONES</th>
+              </tr>
+              <tr>
+                <!-- EJECUTIVO -->
+                  <th>ID EJECUTIVO</th>
+                  <th>FECHA</th>
+                  <th>HORA</th>
+                <!-- EMPRESA A VISITAR -->
+                  <th>EMPRESA</th>
+                  <th>FECHA</th>
+                  <th>HORA</th>
+                  <th>ASUNTO</th>
+                  <th>CONTACTO</th>
+                  <th>RESULTADO</th>
+                <!-- ACCIONES -->
+                  <th>ELIMINAR</th>
+              </tr>
+              </thead>
+          <tbody id="tablaventas">
+          </tbody>
+        </table>
+  </div>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="JS/conexion.js"></script>
+    <script src="JS/ConsultaRegistroVenta.js"></script>
+</body>
+</html>

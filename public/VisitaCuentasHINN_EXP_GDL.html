@@ -1,0 +1,98 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Fondo -->
+    <link rel="stylesheet" type="text/css" href="CSS/fondoH.css"> 
+    <!-- Contenedor -->
+    <link rel="stylesheet" type="text/css" href="CSS/contenedor.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visita a Cuentas HINN EXP GDL</title>
+</head>
+<body>
+    <!-- MENU -->
+        <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="BienvenidoV.html">Departamento de Ventas HINN EXP GDL</a>
+            <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarColor02" aria-controls = "navbarColor02" aria-extended = "false" aria-label = "Navegación de palanca ">
+                <span class = "navbar-toggler-icon"> </span>
+            </button>
+            <div class = "collapse navbar-collapse" id= "navbarColor02">
+                <ul class = "navbar-nav mr-auto">
+                <li class = "nav-item">
+                    <a class="nav-link" href="BienvenidoV.html">Inicio</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="VisitaCuentasHINN_EXP_GDL.html">Visita Cuentas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="TablaVC_HINN_EXP_GDL.html">Tabla</a>
+                  </li>
+                <li>
+                    <a id="login">
+                    <a id="regresar"></a>
+                </li>
+            </ul>
+          </div>
+        </nav>    
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2> VISITA A CUENTAS </h2>
+            </div>
+            <div class="card-header">
+                <h3>DATOS DEL EJECUTIVO</h3>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group form-check">
+                            <br>
+                            <h5>ID DEL EJECUTIVO</h5>
+                                <input type="text" class="form-control" placeholder="ID del Ejecutivo" id="idejecutivo">
+                            <br>
+                            <h5>FECHA DE REGISTRO</h5>
+                                <input type="date" id="fechainput">
+                            <br><br>
+                            <h5>HORA DE REGISTRO</h5>
+                                <input type="time" id="horainput">
+                            <br><br>
+                            <h5>NOMBRE DE LA EMPRESA A VISITAR</h5>
+                                <input type="text" class="form-control" placeholder="Empresa" id="empresainput">
+                            <br>
+                            <h5>FECHA DE LA CITA</h5>
+                                <input type="date" id="fechainputcita">
+                            <br><br>
+                            <h5>HORA DE LA CITA</h5>
+                                <input type="time" id="horainputcita">
+                            <br><br>
+                            <h5>ASUNTO</h5>
+                                <input type="text" class="form-control" placeholder="Asunto" id="asuntoinputcita">
+                            <br>
+                            <h5>NOMBRE DEL CONTACTO DIRECTO DENTRO DE LA EMPRESA A VISITAR</h5>
+                                <input type="text" class="form-control" placeholder="Contacto" id="contactoinputcita">
+                            <br>
+                            <h3>RESULTADO DE LA VISITA</h3>
+                            <input type="text" class="form-control" placeholder="Resultado" id="resultadoinputcita">
+                            <br>
+                                <button type="button" class="btn btn-success" id="btnEnviar" onclick="guardarregistroventas()">Enviar</button>
+                                <a id="enviado"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+<script src="JS/conexion.js"></script>
+<script src="JS/agregarRegistroVenta.js"></script>
+</body>
+</html>
